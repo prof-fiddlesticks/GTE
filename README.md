@@ -1,2 +1,2 @@
 # GTE
-GTE --- Global Trajectory Engine
+GTE --- Global Trajectory Engine vSentinel
