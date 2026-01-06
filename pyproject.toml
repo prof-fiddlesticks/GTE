@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gte-sentinel"
+version = "0.1.0"
+description = "Global Trajectory Engine (Sentinel) — a system for analyzing large-scale global risk and stability trends"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [
+  { name = "GTE vSentinel Contributors" }
+]
+
+dependencies = [
+  "numpy>=1.24",
+  "pandas>=2.0",
+  "scipy>=1.11",
+  "pyyaml>=6.0",
+  "requests>=2.31",
+  "python-dateutil>=2.8",
+  "tqdm>=4.66",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=7.4",
+  "pytest-cov>=4.1",
+  "ruff>=0.3",
+  "black>=24.1",
+  "mypy>=1.8",
+]
+
+viz = [
+  "matplotlib>=3.8",
+  "seaborn>=0.13",
+  "graphviz>=0.20",
+]
+
+[project.scripts]
+gte = "gte_sentinel.cli:main"
+
+[tool.black]
+line-length = 88
+target-version = ["py310"]
+
+[tool.ruff]
+line-length = 88
+select = ["E", "F", "I", "B"]
+ignore = ["E203"]
+
+[tool.mypy]
+python_version = "3.10"
+ignore_missing_imports = true
+strict_optional = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra -q"
